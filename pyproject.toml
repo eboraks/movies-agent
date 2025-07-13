@@ -8,6 +8,20 @@ dependencies = [
     "sqlmodel",
     "alembic",
     "pandas",
-    "python-dotenv", # optional, for environment config
+    "python-dotenv",
+    "langchain-community>=0.3.25",
+    "langchain-core>=0.3.65",
+    "langchain[google-genai]>=0.3.25",
+    "langgraph>=0.4.8",
+    "langgraph-cli[inmem]>=0.3.3",
+    "pytest>=8.4.1",
 ]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
 

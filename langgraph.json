@@ -1,0 +1,9 @@
+{
+    "dependencies": ["."],
+    "name": "movies-agent",
+    "graphs": {
+      "agent":  "./src/react_agent.py:app"
+    },
+    "env": ".env",
+    "image_distro": "wolfi"
+  }

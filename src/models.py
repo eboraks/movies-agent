@@ -2,24 +2,29 @@ from typing import List, Optional
 from sqlmodel import SQLModel, Field, Relationship
 
 class MovieGenreLink(SQLModel, table=True):
+    __tablename__ = "movie_genre_link"
     movie_id: int = Field(foreign_key="movie.id", primary_key=True)
     genre_id: int = Field(foreign_key="genre.id", primary_key=True)
 
 class MovieKeywordLink(SQLModel, table=True):
+    __tablename__ = "movie_keyword_link"
     movie_id: int = Field(foreign_key="movie.id", primary_key=True)
     keyword_id: int = Field(foreign_key="keyword.id", primary_key=True)
 
 class MovieProductionCompanyLink(SQLModel, table=True):
+    __tablename__ = "movie_production_company_link"
     movie_id: int = Field(foreign_key="movie.id", primary_key=True)
-    company_id: int = Field(foreign_key="productioncompany.id", primary_key=True)
+    company_id: int = Field(foreign_key="production_company.id", primary_key=True)
 
 class MovieProductionCountryLink(SQLModel, table=True):
+    __tablename__ = "movie_production_country_link"
     movie_id: int = Field(foreign_key="movie.id", primary_key=True)
-    country_id: int = Field(foreign_key="productioncountry.id", primary_key=True)
+    country_id: int = Field(foreign_key="production_country.id", primary_key=True)
 
 class MovieSpokenLanguageLink(SQLModel, table=True):
+    __tablename__ = "movie_spoken_language_link"
     movie_id: int = Field(foreign_key="movie.id", primary_key=True)
-    language_id: int = Field(foreign_key="spokenlanguage.id", primary_key=True)
+    language_id: int = Field(foreign_key="spoken_language.id", primary_key=True)
 
 class Genre(SQLModel, table=True):
     id: int = Field(primary_key=True)
@@ -32,17 +37,20 @@ class Keyword(SQLModel, table=True):
     movies: List["Movie"] = Relationship(back_populates="keywords", link_model=MovieKeywordLink)
 
 class ProductionCompany(SQLModel, table=True):
+    __tablename__ = "production_company"
     id: int = Field(primary_key=True)
     name: str
     movies: List["Movie"] = Relationship(back_populates="production_companies", link_model=MovieProductionCompanyLink)
 
 class ProductionCountry(SQLModel, table=True):
+    __tablename__ = "production_country"
     id: int = Field(primary_key=True)
     iso_3166_1: str
     name: str
     movies: List["Movie"] = Relationship(back_populates="production_countries", link_model=MovieProductionCountryLink)
 
 class SpokenLanguage(SQLModel, table=True):
+    __tablename__ = "spoken_language"
     id: int = Field(primary_key=True)
     iso_639_1: str
     name: str

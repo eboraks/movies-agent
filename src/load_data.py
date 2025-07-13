@@ -1,7 +1,7 @@
 import json
 import pandas as pd
 from sqlmodel import Session, SQLModel, create_engine, select
-from app.models import (
+from src.models import (
     Movie, Genre, Keyword, ProductionCompany, ProductionCountry, SpokenLanguage,
     MovieGenreLink, MovieKeywordLink, MovieProductionCompanyLink, MovieProductionCountryLink, MovieSpokenLanguageLink,
     Cast, Crew

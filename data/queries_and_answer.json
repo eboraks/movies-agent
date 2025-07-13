@@ -1,0 +1,76 @@
+[
+    {
+        "sql": "SELECT m.title, g.name AS genre FROM movie AS m INNER JOIN movie_genre_link AS mgl ON m.id = mgl.movie_id INNER JOIN genre AS g ON mgl.genre_id = g.id WHERE g.name = 'Action' ORDER BY m.title ASC LIMIT 10",
+        "question": "Order by title ascending action movies",
+        "answer": [
+            {
+                "title": "10th & Wolf",
+                "genre": "Action"
+            },
+            {
+                "title": "12 Rounds",
+                "genre": "Action"
+            },
+            {
+                "title": "13 Hours: The Secret Soldiers of Benghazi",
+                "genre": "Action"
+            },
+            {
+                "title": "15 Minutes",
+                "genre": "Action"
+            },
+            {
+                "title": "16 Blocks",
+                "genre": "Action"
+            },
+            {
+                "title": "1911",
+                "genre": "Action"
+            },
+            {
+                "title": "1941",
+                "genre": "Action"
+            },
+            {
+                "title": "2 Fast 2 Furious",
+                "genre": "Action"
+            },
+            {
+                "title": "2 Guns",
+                "genre": "Action"
+            },
+            {
+                "title": "2012",
+                "genre": "Action"
+            }
+        ]
+    },
+    {
+        "sql": "SELECT m.title, g.name AS genre FROM movie AS m INNER JOIN movie_genre_link AS mgl ON m.id = mgl.movie_id INNER JOIN genre AS g ON mgl.genre_id = g.id WHERE m.title like '%2 Guns%'",
+        "question": "What is the genres of the movie 2 Guns?",
+        "answer": [
+            {
+                "title": "2 Guns",
+                "genre": "Action"
+            },
+            {
+                "title": "2 Guns",
+                "genre": "Comedy"
+            },
+            {
+                "title": "2 Guns",
+                "genre": "Crime"
+            }
+        ]
+    },
+    {
+        "sql": "SELECT m.title, pc.name AS production_country FROM movie AS m INNER JOIN movie_production_country_link AS mgl ON m.id = mgl.movie_id INNER JOIN production_country AS pc ON mgl.country_id = pc.id WHERE m.title like '%2 Guns%'",
+        "question": "What is the production country of the movie 2 Guns?",
+        "answer": [
+            {
+                "title": "2 Guns",
+                "production_country": "United States of America"
+            }
+        ]
+    }
+]
